@@ -1,12 +1,16 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link2, Check } from 'lucide-react';
 
 export function ShareButtons({ slug }: { slug: string }) {
   const [copied, setCopied] = useState(false);
-  const url = typeof window !== 'undefined' ? `${window.location.origin}/results/${slug}` : '';
+  const [url, setUrl] = useState('');
+
+  useEffect(() => {
+    setUrl(`${window.location.origin}/results/${slug}`);
+  }, [slug]);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(url);

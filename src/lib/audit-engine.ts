@@ -66,11 +66,11 @@ export function runAudit(input: AuditInput): AuditResult {
       const toolData = PRICING_DATA[r.toolId];
       recommendations.push({
         tool: toolData.name,
-        issue: 'Overlapping AI Coding Tools',
-        recommendation: `Consolidate to a single coding copilot (${PRICING_DATA[primary.toolId].name}).`,
+        issue: 'Sub-optimal License Utilization: Redundant Coding Copilots',
+        recommendation: `Standardize engineering organization on ${PRICING_DATA[primary.toolId].name}.`,
         savings: r.monthlySpend,
         confidence: 'High',
-        reasoning: `You are paying for multiple AI coding assistants. Standardizing on ${PRICING_DATA[primary.toolId].name} for your team eliminates redundant licensing costs without sacrificing developer velocity.`,
+        reasoning: `Analysis indicates overlapping functional capabilities across multiple active coding assistants. Standardizing on a single enterprise-wide solution (${PRICING_DATA[primary.toolId].name}) eliminates redundant licensing overhead while maintaining developer velocity and codebase consistency.`,
       });
       projectedSpend -= r.monthlySpend;
     }
@@ -86,11 +86,11 @@ export function runAudit(input: AuditInput): AuditResult {
       const toolData = PRICING_DATA[r.toolId];
       recommendations.push({
         tool: toolData.name,
-        issue: 'Overlapping Chat Assistants',
-        recommendation: `Standardize on a single AI chat platform (${PRICING_DATA[primary.toolId].name}).`,
+        issue: 'SaaS Fragmentation: Overlapping Conversational AI',
+        recommendation: `Consolidate chat interfaces to ${PRICING_DATA[primary.toolId].name}.`,
         savings: r.monthlySpend,
         confidence: 'High',
-        reasoning: `Most premium AI chat tools provide access to comparable frontier models. Consolidating overlapping subscriptions to a single platform prevents fragmentation and duplicate spend.`,
+        reasoning: `Your organization is currently distributing spend across multiple chat-based AI platforms that leverage commoditized frontier models. Consolidating to a unified platform centralizes data governance and recovers fragmented SaaS expenditure.`,
       });
       projectedSpend -= r.monthlySpend;
     }
@@ -115,11 +115,11 @@ export function runAudit(input: AuditInput): AuditResult {
           const savings = userTool.monthlySpend - expectedProCost;
           recommendations.push({
             tool: toolData.name,
-            issue: 'Unnecessary Enterprise/Team Plan',
-            recommendation: `Downgrade to ${proPlan.name} plan.`,
+            issue: 'Inefficient Tier Allocation: Unutilized Enterprise Features',
+            recommendation: `Right-size licensing to the ${proPlan.name} tier.`,
             savings: savings,
             confidence: 'Medium',
-            reasoning: `For a team size of ${input.teamSize}, the administrative features of the ${userTool.plan} plan are likely underutilized. Downgrading to the ${proPlan.name} tier offers the same core AI capabilities at a reduced cost per seat.`,
+            reasoning: `Given your current headcount (${input.teamSize} seats), the compliance and administrative features bundled in the ${userTool.plan} tier are likely yielding negative ROI. Transitioning to the ${proPlan.name} tier preserves core AI model access while optimizing per-seat capital efficiency.`,
           });
           projectedSpend -= savings;
         }
@@ -133,11 +133,11 @@ export function runAudit(input: AuditInput): AuditResult {
     // Add a recommendation to seek credits
     recommendations.push({
       tool: 'API Infrastructure',
-      issue: 'High unoptimized API Spend',
-      recommendation: 'Talk to Credex to secure discounted AI credits.',
+      issue: 'Infrastructure Spend Optimization',
+      recommendation: 'Engage Credex to secure startup infrastructure credits.',
       savings: totalApiSpend * 0.2, // Estimate 20% savings via credits
       confidence: 'Medium',
-      reasoning: `Your monthly API spend exceeds $500. Startups at this volume can often secure significant infrastructure credits or committed use discounts through partners like Credex, potentially reducing variable costs by up to 20%.`,
+      reasoning: `API consumption run-rate indicates significant margin pressure. Companies at this volume threshold are highly eligible for partner-subsidized committed use discounts. Engaging a credit broker can immediately reduce variable infrastructure OPEX by up to 20%.`,
     });
     projectedSpend -= (totalApiSpend * 0.2);
   }

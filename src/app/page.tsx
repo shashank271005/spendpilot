@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, BarChart3, Zap, Shield } from 'lucide-react';
+import * as motion from 'framer-motion/client';
 import { Button } from '@/components/ui/button';
 
 export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden bg-background selection:bg-primary/30">
       {/* Background gradients & grid */}
+      <div className="noise-overlay" />
       <div className="absolute inset-0 bg-grid-pattern -z-20 opacity-30" />
       <div className="absolute top-0 left-0 right-0 h-[800px] bg-gradient-radial from-primary/15 to-transparent -z-10 blur-3xl opacity-60" />
       <div className="absolute top-[10%] right-[5%] w-[500px] h-[500px] bg-gradient-radial from-blue-500/10 to-transparent -z-10 blur-3xl rounded-full mix-blend-screen" />
@@ -95,13 +97,20 @@ export default function LandingPage() {
               { title: 'Deterministic Logic', icon: Shield, desc: 'No hallucinated savings. We use hardcoded pricing models and strict consolidation rules.' },
               { title: 'Actionable Insights', icon: Zap, desc: 'Get step-by-step recommendations on downgrades, overlapping tools, and credit opportunities.' }
             ].map((feature, i) => (
-              <div key={i} className="glass-card p-10 rounded-3xl flex flex-col items-start group">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="glass-card p-10 rounded-3xl flex flex-col items-start group"
+              >
                 <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 border border-primary/20 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-500">
                   <feature.icon className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="text-2xl font-semibold mb-4 text-white/90">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed text-lg">{feature.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>

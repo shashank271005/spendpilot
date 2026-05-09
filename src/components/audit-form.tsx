@@ -104,7 +104,7 @@ export function AuditForm() {
           <input 
             type="number" 
             {...register("teamSize", { valueAsNumber: true })} 
-            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           />
           {errors.teamSize && <p className="text-xs text-destructive">{errors.teamSize.message}</p>}
         </div>
@@ -112,7 +112,7 @@ export function AuditForm() {
           <label className="text-sm font-medium">Primary Use Case</label>
           <select 
             {...register("primaryUseCase")} 
-            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <option value="coding">Software Development</option>
             <option value="writing">Content/Writing</option>
@@ -148,7 +148,7 @@ export function AuditForm() {
                   <label className="text-xs font-medium text-muted-foreground">Tool</label>
                   <select 
                     {...register(`tools.${index}.toolId`)} 
-                    className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-1 text-base md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     onChange={(e) => {
                       const newId = e.target.value;
                       const newTool = toolsList.find(t => t.id === newId);
@@ -170,7 +170,7 @@ export function AuditForm() {
                   <label className="text-xs font-medium text-muted-foreground">Plan</label>
                   <select 
                     {...register(`tools.${index}.plan`)} 
-                    className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-1 text-base md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     disabled={!selectedToolData}
                   >
                     <option value="">Select plan...</option>
@@ -185,7 +185,7 @@ export function AuditForm() {
                   <input 
                     type="number" 
                     {...register(`tools.${index}.seats`, { valueAsNumber: true })} 
-                    className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-1 text-base md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   />
                 </div>
 
@@ -195,7 +195,7 @@ export function AuditForm() {
                     type="number" 
                     step="0.01"
                     {...register(`tools.${index}.monthlySpend`, { valueAsNumber: true })} 
-                    className="flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-1 text-base md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   />
                 </div>
 
@@ -206,7 +206,7 @@ export function AuditForm() {
                     size="icon" 
                     onClick={() => remove(index)}
                     disabled={fields.length === 1}
-                    className="text-muted-foreground hover:text-destructive"
+                    className="w-full md:w-11 h-11 text-muted-foreground hover:text-destructive border border-border/50 md:border-transparent mt-2 md:mt-0"
                   >
                     <Trash2 className="w-4 h-4" />
                   </Button>
