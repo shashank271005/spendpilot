@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Zap, ShieldAlert, ArrowDownToLine, Info } from 'lucide-react';
+import { ArrowLeft, Zap, ShieldAlert, ArrowDownToLine, Info, Check } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { AnimatedCounter } from '@/components/animated-counter';
 import { EmailCapture } from '@/components/email-capture';
 import { ShareButtons } from '@/components/share-buttons';
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   return {
     title: `Audit Results - SpendPilot`,
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function ResultsPage({ params }: { params: { slug: string } }) {
+export default async function ResultsPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   
   let audit: any = null;

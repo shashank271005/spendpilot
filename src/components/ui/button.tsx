@@ -55,7 +55,7 @@ const Button = React.forwardRef<React.ElementRef<typeof ButtonPrimitive>, Button
         <Slot
           className={cn(buttonVariants({ variant, size, className }))}
           ref={ref as any}
-          {...props}
+          {...(props as any)}
         />
       )
     }
