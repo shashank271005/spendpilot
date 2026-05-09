@@ -9,6 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_VERCEL_URL ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}` : "http://localhost:3000"),
   title: "SpendPilot - AI Spend Audit Platform",
   description: "Audit your AI tooling spend in 60 seconds and uncover unnecessary costs.",
   openGraph: {

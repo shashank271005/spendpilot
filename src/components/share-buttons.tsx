@@ -9,6 +9,7 @@ export function ShareButtons({ slug }: { slug: string }) {
   const [url, setUrl] = useState('');
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setUrl(`${window.location.origin}/results/${slug}`);
   }, [slug]);
 

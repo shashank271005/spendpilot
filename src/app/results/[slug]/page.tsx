@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowLeft, Zap, ShieldAlert, ArrowDownToLine, Info, Check } from 'lucide-react';
+import { ArrowLeft, Zap } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
-import { AnimatedCounter } from '@/components/animated-counter';
 import { EmailCapture } from '@/components/email-capture';
 import { ShareButtons } from '@/components/share-buttons';
 import { SavingsHero } from '@/components/results/savings-hero';
@@ -12,12 +11,35 @@ import { ActionPlan } from '@/components/results/action-plan';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  
+  let savings = 5400;
+  if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
+    try {
+      const { data } = await supabase
+        .from('audits')
+        .select('annual_savings')
+        .eq('slug', slug)
+        .single();
+      if (data) savings = data.annual_savings;
+    } catch (err) {
+      // ignore errors for metadata
+    }
+  }
+
   return {
     title: `Audit Results - SpendPilot`,
     openGraph: {
       title: `AI Spend Audit Results`,
       description: `View the AI tooling optimization report on SpendPilot.`,
       url: `https://spendpilot.com/results/${slug}`,
+      images: [
+        {
+          url: `/api/og?savings=${savings}`,
+          width: 1200,
+          height: 630,
+          alt: `SpendPilot potential annual savings report`,
+        }
+      ]
     }
   }
 }
