@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Zap, ShieldAlert, ArrowDownToLine, Info, Check } from 'lucide-react';
@@ -139,7 +140,7 @@ export default async function ResultsPage({ params }: { params: Promise<{ slug: 
             </div>
             <div>
               <h3 className="font-semibold">Your stack is optimized!</h3>
-              <p className="text-sm text-muted-foreground">We didn't find any major overlapping subscriptions or unnecessary enterprise plans based on your team size.</p>
+              <p className="text-sm text-muted-foreground">We didn&apos;t find any major overlapping subscriptions or unnecessary enterprise plans based on your team size.</p>
             </div>
           </div>
         )}

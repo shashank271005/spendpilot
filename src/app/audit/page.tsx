@@ -24,7 +24,7 @@ export default function AuditPage() {
       <main className="flex-1 max-w-3xl w-full mx-auto px-6 py-12">
         <div className="mb-10 text-center">
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">Audit Your AI Stack</h1>
-          <p className="text-muted-foreground">Add all the AI tools your team currently pays for. We'll analyze your stack for overlaps, inefficiencies, and better pricing tiers.</p>
+          <p className="text-muted-foreground">Add all the AI tools your team currently pays for. We&apos;ll analyze your stack for overlaps, inefficiencies, and better pricing tiers.</p>
         </div>
 
         <div className="glass-card rounded-2xl p-6 md:p-8">

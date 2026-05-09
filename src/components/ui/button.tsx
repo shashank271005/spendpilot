@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from "react"
 import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { Slot } from "@radix-ui/react-slot"

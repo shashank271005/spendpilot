@@ -56,7 +56,7 @@ export function runAudit(input: AuditInput): AuditResult {
   // 2. Check for Overlapping Tools (Consolidation)
   // Coding Copilots
   if (toolsByCategory.coding.length > 1) {
-    const totalCodingSpend = toolsByCategory.coding.reduce((acc, t) => acc + t.monthlySpend, 0);
+
     // Keep the one with the highest spend or just recommend keeping the primary one (say, Cursor)
     const sortedCoding = [...toolsByCategory.coding].sort((a, b) => b.monthlySpend - a.monthlySpend);
     const primary = sortedCoding[0];

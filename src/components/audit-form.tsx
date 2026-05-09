@@ -7,7 +7,7 @@ import * as z from 'zod';
 import { useRouter } from 'next/navigation';
 import { Plus, Trash2, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { PRICING_DATA, getAllTools } from '@/lib/pricing-data';
+import { getAllTools } from '@/lib/pricing-data';
 
 const toolSchema = z.object({
   toolId: z.string().min(1, "Select a tool"),
@@ -62,6 +62,7 @@ export function AuditForm() {
   // Save to local storage on change
   useEffect(() => {
     if (isLoaded) {
+      // eslint-disable-next-line react-hooks/incompatible-library
       const subscription = watch((value) => {
         localStorage.setItem('spendpilot_audit', JSON.stringify(value));
       });

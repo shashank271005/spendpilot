@@ -47,7 +47,7 @@ export function EmailCapture({ auditId }: { auditId: string }) {
           <CheckCircle2 className="w-6 h-6 text-green-500" />
         </div>
         <h3 className="font-semibold text-lg">Report Sent</h3>
-        <p className="text-muted-foreground text-sm">We've emailed you a copy of your audit results.</p>
+        <p className="text-muted-foreground text-sm">We&apos;ve emailed you a copy of your audit results.</p>
       </div>
     );
   }
