@@ -10,7 +10,7 @@ export default function LandingPage() {
       <div className="noise-overlay" />
       <div className="absolute inset-0 bg-grid-pattern -z-20 opacity-30" />
       <div className="absolute top-0 left-0 right-0 h-[800px] bg-gradient-radial from-primary/15 to-transparent -z-10 blur-3xl opacity-60" />
-      <div className="absolute top-[10%] right-[5%] w-[500px] h-[500px] bg-gradient-radial from-blue-500/10 to-transparent -z-10 blur-3xl rounded-full mix-blend-screen" />
+      <div className="absolute top-[10%] right-[5%] w-[500px] h-[500px] bg-gradient-radial from-slate-400/10 to-transparent -z-10 blur-3xl rounded-full mix-blend-screen" />
       <div className="absolute bottom-[20%] left-[5%] w-[400px] h-[400px] bg-gradient-radial from-purple-500/10 to-transparent -z-10 blur-3xl rounded-full mix-blend-screen" />
 
       {/* Header */}
@@ -40,7 +40,7 @@ export default function LandingPage() {
         {/* Hero Section */}
         <section className="w-full max-w-6xl mx-auto px-6 py-20 flex flex-col justify-center items-center text-center min-h-[calc(100vh-76px)]">
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100 fill-mode-both relative group mb-8 mt-[-10vh]">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-full blur opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-200"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500/20 to-slate-400/20 rounded-full blur opacity-30 group-hover:opacity-70 transition duration-1000 group-hover:duration-200"></div>
             <div className="relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-background/50 border border-white/5 backdrop-blur-md text-sm font-medium text-muted-foreground hover:text-white transition-colors">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-50"></span>
@@ -213,7 +213,7 @@ export default function LandingPage() {
 
       {/* Mobile Sticky CTA */}
       <div className="md:hidden fixed bottom-6 left-6 right-6 z-50">
-        <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-full blur opacity-40"></div>
+        <div className="absolute -inset-1 bg-gradient-to-r from-primary to-slate-400 rounded-full blur opacity-40"></div>
         <Button asChild size="lg" className="relative w-full rounded-full shadow-2xl h-14 text-base bg-white text-black">
           <Link href="/audit">Run Free Audit</Link>
         </Button>

@@ -109,7 +109,7 @@
   --chart-5: oklch(0.269 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: oklch(0.922 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
@@ -134,7 +134,7 @@
 
 @layer utilities {
   .glass {
-    @apply bg-background/50 backdrop-blur-xl border border-white/10 shadow-[0_4px_30px_rgba(0, 0, 0, 0.1)] relative overflow-hidden;
+    @apply bg-background/50 backdrop-blur-xl border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)] relative overflow-hidden;
   }
 
   .glass::before {
@@ -143,7 +143,7 @@
   }
 
   .glass-card {
-    @apply bg-card/40 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0, 0, 0, 0.3)] transition-all duration-300 relative overflow-hidden;
+    @apply bg-card/40 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-all duration-300 relative overflow-hidden;
   }
 
   .glass-card::before {
@@ -152,7 +152,7 @@
   }
 
   .glass-card:hover {
-    @apply border-white/20 shadow-[0_8px_32px_rgba(255, 255, 255, 0.05)];
+    @apply border-white/20 shadow-[0_8px_32px_rgba(255,255,255,0.05)];
   }
 
   .text-gradient {
