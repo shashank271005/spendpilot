@@ -97,8 +97,8 @@ export default function LandingPage() {
               { title: 'Deterministic Logic', icon: Shield, desc: 'No hallucinated savings. We use hardcoded pricing models and strict consolidation rules.' },
               { title: 'Actionable Insights', icon: Zap, desc: 'Get step-by-step recommendations on downgrades, overlapping tools, and credit opportunities.' }
             ].map((feature, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

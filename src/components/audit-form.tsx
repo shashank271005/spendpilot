@@ -80,7 +80,7 @@ export function AuditForm() {
       });
 
       if (!response.ok) throw new Error("Failed to submit audit");
-      
+
       const result = await response.json();
       router.push(`/results/${result.slug}`);
     } catch (error) {
@@ -101,17 +101,17 @@ export function AuditForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label className="text-sm font-medium">Team Size</label>
-          <input 
-            type="number" 
-            {...register("teamSize", { valueAsNumber: true })} 
+          <input
+            type="number"
+            {...register("teamSize", { valueAsNumber: true })}
             className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           />
           {errors.teamSize && <p className="text-xs text-destructive">{errors.teamSize.message}</p>}
         </div>
         <div className="space-y-2">
           <label className="text-sm font-medium">Primary Use Case</label>
-          <select 
-            {...register("primaryUseCase")} 
+          <select
+            {...register("primaryUseCase")}
             className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <option value="coding">Software Development</option>
@@ -146,8 +146,8 @@ export function AuditForm() {
               <div key={field.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 p-4 rounded-xl border border-border/50 bg-muted/20 relative group">
                 <div className="md:col-span-3 space-y-2">
                   <label className="text-xs font-medium text-muted-foreground">Tool</label>
-                  <select 
-                    {...register(`tools.${index}.toolId`)} 
+                  <select
+                    {...register(`tools.${index}.toolId`)}
                     className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-1 text-base md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     onChange={(e) => {
                       const newId = e.target.value;
@@ -168,8 +168,8 @@ export function AuditForm() {
 
                 <div className="md:col-span-3 space-y-2">
                   <label className="text-xs font-medium text-muted-foreground">Plan</label>
-                  <select 
-                    {...register(`tools.${index}.plan`)} 
+                  <select
+                    {...register(`tools.${index}.plan`)}
                     className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-1 text-base md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     disabled={!selectedToolData}
                   >
@@ -182,28 +182,28 @@ export function AuditForm() {
 
                 <div className="md:col-span-2 space-y-2">
                   <label className="text-xs font-medium text-muted-foreground">Seats</label>
-                  <input 
-                    type="number" 
-                    {...register(`tools.${index}.seats`, { valueAsNumber: true })} 
+                  <input
+                    type="number"
+                    {...register(`tools.${index}.seats`, { valueAsNumber: true })}
                     className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-1 text-base md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   />
                 </div>
 
                 <div className="md:col-span-3 space-y-2">
                   <label className="text-xs font-medium text-muted-foreground">Monthly Spend ($)</label>
-                  <input 
-                    type="number" 
+                  <input
+                    type="number"
                     step="0.01"
-                    {...register(`tools.${index}.monthlySpend`, { valueAsNumber: true })} 
+                    {...register(`tools.${index}.monthlySpend`, { valueAsNumber: true })}
                     className="flex h-11 w-full rounded-md border border-input bg-background px-3 py-1 text-base md:text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   />
                 </div>
 
                 <div className="md:col-span-1 flex items-end justify-end pb-1">
-                  <Button 
-                    type="button" 
-                    variant="ghost" 
-                    size="icon" 
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
                     onClick={() => remove(index)}
                     disabled={fields.length === 1}
                     className="w-full md:w-11 h-11 text-muted-foreground hover:text-destructive border border-border/50 md:border-transparent mt-2 md:mt-0"

@@ -6,7 +6,7 @@ export default function AuditPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-radial from-primary/5 to-transparent -z-10 blur-3xl" />
-      
+
       <header className="px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
           <ArrowLeft className="w-4 h-4" />
