@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+export const dynamic = 'force-dynamic';
+
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Zap } from 'lucide-react';
@@ -11,7 +13,7 @@ import { ActionPlan } from '@/components/results/action-plan';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  
+   
   let savings = 5400;
   if (process.env.NEXT_PUBLIC_SUPABASE_URL) {
     try {
