@@ -82,6 +82,37 @@ export function AuditForm() {
       if (!response.ok) throw new Error("Failed to submit audit");
 
       const result = await response.json();
+
+      // Save audit result to localStorage for the results page to read.
+      // This ensures results persist without a database (works on Vercel).
+      const auditData = {
+        id: result.slug,
+        slug: result.slug,
+        team_size: data.teamSize,
+        primary_use_case: data.primaryUseCase,
+        total_current_spend: result.result.currentSpend,
+        total_projected_spend: result.result.projectedSpend,
+        monthly_savings: result.result.monthlySavings,
+        annual_savings: result.result.annualSavings,
+        ai_summary: result.aiSummary,
+        audit_tools: data.tools.map(t => {
+          const rec = result.result.recommendations.find(
+            (r: { tool: string }) => r.tool.toLowerCase().includes(t.toolId.replace('_', ' '))
+          );
+          return {
+            tool_name: t.toolId,
+            plan: t.plan,
+            monthly_spend: t.monthlySpend,
+            seats: t.seats,
+            recommendation_type: rec ? rec.issue : null,
+            recommendation_text: rec ? rec.recommendation : null,
+            savings: rec ? rec.savings : 0,
+            confidence: rec ? rec.confidence : null,
+          };
+        }),
+      };
+      localStorage.setItem(`spendpilot_result_${result.slug}`, JSON.stringify(auditData));
+
       router.push(`/results/${result.slug}`);
     } catch (error) {
       console.error(error);
